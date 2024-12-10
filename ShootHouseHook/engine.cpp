@@ -7,6 +7,14 @@
 
 #undef DO_API
 
+
+#define DO_FUNC(RetType, Name, Args, AssemblyName, Namespaze, ClazzName) \
+		Name##_t Name = NULL;
+
+#include "il2cpp_function.h"
+
+#undef DO_FUNC
+
 namespace Engine 
 {
 
@@ -29,6 +37,13 @@ namespace Engine
 #undef DO_API
 
 		// printf("%p\n", il2cpp_field_get_name);
+
+#define DO_FUNC(RetType, Name, Args, AssemblyName, Namespaze, ClazzName) \
+		Name = (Name##_t)GetMethod(AssemblyName, Namespaze, ClazzName);
+
+#include "il2cpp_function.h"
+
+#undef DO_FUNC
 
 	}
 
@@ -63,7 +78,14 @@ namespace Engine
 				break;
 
 			string temp = GetTypeName(il2cpp_method_get_return_type(pMethod));
+			temp += " ";
+			temp += il2cpp_method_get_name(pMethod);
+			temp += "(";
 
+			printf("%s\n", temp.c_str());
 		}
+		printf("error: %s\n", ClazzName.c_str());
+
+		return NULL;
 	}
 }

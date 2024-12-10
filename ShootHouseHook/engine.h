@@ -33,6 +33,15 @@ extern Name##_t Name;
 
 #undef DO_API
 
+
+#define DO_FUNC(RetType, Name, Args, AssemblyName, Namespaze, ClazzName) \
+using Name##_t = RetType(__stdcall*) Args; \
+extern Name##_t Name;
+
+#include "il2cpp_function.h"
+
+#undef DO_FUNC
+
 namespace Engine
 {
 	void Initialize();

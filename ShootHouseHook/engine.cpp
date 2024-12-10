@@ -111,6 +111,7 @@ namespace Engine
 
 			}
 
+			temp += ")";
 
 			printf("%s\n", temp.c_str());
 		}

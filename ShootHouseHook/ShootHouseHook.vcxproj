@@ -157,6 +157,7 @@
     <ClInclude Include="base.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="hooks.h" />
+    <ClInclude Include="il2cpp_api.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
     <ClInclude Include="ImGui\imgui_impl_dx11.h" />

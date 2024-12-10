@@ -1,5 +1,11 @@
 #include "engine.h"
 
+#define DO_API(RetType, Name, Args) \
+	Name##_t Name;
+
+#include "il2cpp_api.h"
+
+#undef DO_API
 
 namespace Engine 
 {

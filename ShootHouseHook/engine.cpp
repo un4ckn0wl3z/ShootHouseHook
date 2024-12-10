@@ -1,7 +1,7 @@
 #include "engine.h"
 
 #define DO_API(RetType, Name, Args) \
-	Name##_t Name;
+	Name##_t Name = NULL;
 
 #include "il2cpp_api.h"
 
@@ -10,13 +10,26 @@
 namespace Engine 
 {
 
-	HMODULE hUnityPlayer = NULL;
 	HWND hWnd = NULL;
+	HMODULE hUnityPlayer = NULL;
+	HMODULE hGameAssembly = NULL;
 
 	void Engine::Initialize()
 	{
 		hWnd = FindWindowA("UnityWndClass", NULL);
 		hUnityPlayer = GetModuleHandleA("UnityPlayer.dll");
+		hGameAssembly = GetModuleHandleA("GameAssembly.dll");
+
+
+#define DO_API(RetType, Name, Args) \
+	Name = (Name##_t)GetProcAddress(hGameAssembly,#Name);
+
+#include "il2cpp_api.h"
+
+#undef DO_API
+
+		// printf("%p\n", il2cpp_field_get_name);
+
 	}
 
 	IDXGISwapChain* Engine::GetSwapChain()

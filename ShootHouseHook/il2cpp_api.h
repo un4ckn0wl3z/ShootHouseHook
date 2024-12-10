@@ -1,4 +1,4 @@
-#pragma once
+
 
 // assembly
 DO_API(const Il2CppImage*, il2cpp_assembly_get_image, (const Il2CppAssembly* assembly));

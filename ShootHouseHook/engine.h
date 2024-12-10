@@ -49,4 +49,5 @@ namespace Engine
 	IDXGISwapChain* GetSwapChain();
 	void* GetMethod(string AssemblyName, string Namespaze, string ClazzName);
 	string GetTypeName(const Il2CppType* pType);
+	string GetTypeName(string Name);
 }

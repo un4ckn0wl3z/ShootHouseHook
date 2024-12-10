@@ -58,10 +58,22 @@ namespace Engine
 		return hWnd;
 	}
 
+	string GetTypeName(string Name)
+	{
+		size_t Idx = Name.find_first_of(".");
+		if (Idx != string::npos)
+		{
+			Name = Name.substr(Idx + 1);
+		}
+		
+		return Name;
+	}
+
 	string GetTypeName(const Il2CppType* pType)
 	{
-		return il2cpp_type_get_name(pType);
+		return GetTypeName(il2cpp_type_get_name(pType));
 	}
+
 
 	void* GetMethod(string AssemblyName, string Namespaze, string ClazzName)
 	{

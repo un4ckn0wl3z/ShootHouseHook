@@ -38,5 +38,6 @@ namespace Engine
 	void Initialize();
 	HWND GethWnd();
 	IDXGISwapChain* GetSwapChain();
-	void* GetMethod();
+	void* GetMethod(string AssemblyName, string Namespaze, string ClazzName);
+	string GetTypeName(const Il2CppType* pType);
 }

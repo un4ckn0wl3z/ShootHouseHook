@@ -94,6 +94,24 @@ namespace Engine
 			temp += il2cpp_method_get_name(pMethod);
 			temp += "(";
 
+			uint32_t MaxParam = il2cpp_method_get_param_count(pMethod);
+
+			for (uint32_t i = 0; i < MaxParam; i++)
+			{
+				temp += GetTypeName(il2cpp_method_get_param(pMethod, i));
+				temp += " ";
+				temp += il2cpp_method_get_param_name(pMethod, i);
+				if (MaxParam - 1 == i)
+				{
+					temp += ")";
+					break;
+				}
+
+				temp += ",";
+
+			}
+
+
 			printf("%s\n", temp.c_str());
 		}
 		printf("error: %s\n", ClazzName.c_str());

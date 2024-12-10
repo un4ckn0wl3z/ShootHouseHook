@@ -38,4 +38,5 @@ namespace Engine
 	void Initialize();
 	HWND GethWnd();
 	IDXGISwapChain* GetSwapChain();
+	void* GetMethod();
 }

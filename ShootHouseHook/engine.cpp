@@ -42,4 +42,12 @@ namespace Engine
 	{
 		return hWnd;
 	}
+
+	void* GetMethod(string AssemblyName)
+	{
+		Il2CppDomain* pDomain = il2cpp_domain_get();
+		const Il2CppAssembly* pAssembly = il2cpp_domain_assembly_open(pDomain, AssemblyName.c_str());
+		const Il2CppImage*  pImage = il2cpp_assembly_get_image(pAssembly);
+		// TODO:
+	}
 }

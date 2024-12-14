@@ -8,7 +8,7 @@
 #undef DO_API
 
 
-#define DO_FUNC(RetType, Name, Args, AssemblyName, Namespaze, ClazzName) \
+#define DO_FUNC(RetType, Name, Args, AssemblyName, Namespaze, ClazzName, Func) \
 		Name##_t Name = NULL;
 
 #include "il2cpp_function.h"
@@ -38,8 +38,8 @@ namespace Engine
 
 		// printf("%p\n", il2cpp_field_get_name);
 
-#define DO_FUNC(RetType, Name, Args, AssemblyName, Namespaze, ClazzName) \
-		Name = (Name##_t)GetMethod(AssemblyName, Namespaze, ClazzName);
+#define DO_FUNC(RetType, Name, Args, AssemblyName, Namespaze, ClazzName, Func) \
+		Name = (Name##_t)GetMethod(AssemblyName, Namespaze, ClazzName, Func);
 
 #include "il2cpp_function.h"
 
@@ -75,7 +75,7 @@ namespace Engine
 	}
 
 
-	void* GetMethod(string AssemblyName, string Namespaze, string ClazzName)
+	void* GetMethod(string AssemblyName, string Namespaze, string ClazzName, string Func)
 	{
 		Il2CppDomain* pDomain = il2cpp_domain_get();
 		const Il2CppAssembly* pAssembly = il2cpp_domain_assembly_open(pDomain, AssemblyName.c_str());
@@ -102,19 +102,20 @@ namespace Engine
 				temp += " ";
 				temp += il2cpp_method_get_param_name(pMethod, i);
 				if (MaxParam - 1 == i)
-				{
-					temp += ")";
 					break;
-				}
 
-				temp += ",";
+				temp += ", ";
 
 			}
 
-			temp += ")";
-			//continue at 44:12
+			temp += ");";
+			if (temp == Func)
+			{
+				printf("%p\n", *(void**)pMethod);
+				return *(void**)pMethod;
+			}
 
-			printf("%s\n", temp.c_str());
+			
 		}
 		printf("error: %s\n", ClazzName.c_str());
 

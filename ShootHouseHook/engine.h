@@ -34,7 +34,7 @@ extern Name##_t Name;
 #undef DO_API
 
 
-#define DO_FUNC(RetType, Name, Args, AssemblyName, Namespaze, ClazzName) \
+#define DO_FUNC(RetType, Name, Args, AssemblyName, Namespaze, ClazzName, Func) \
 using Name##_t = RetType(__stdcall*) Args; \
 extern Name##_t Name;
 
@@ -47,7 +47,7 @@ namespace Engine
 	void Initialize();
 	HWND GethWnd();
 	IDXGISwapChain* GetSwapChain();
-	void* GetMethod(string AssemblyName, string Namespaze, string ClazzName);
+	void* GetMethod(string AssemblyName, string Namespaze, string ClazzName, string Func);
 	string GetTypeName(const Il2CppType* pType);
 	string GetTypeName(string Name);
 }

@@ -60,15 +60,17 @@ namespace Hooks
 		void* Type = GetType(Str);
 		Unity_Array* Objects = FindObjectsOfType(Type);
 
-		printf("%p\n", Objects);
 
-		/*
+		
 		for (size_t i = 0; i < Objects->Count; i++)
 		{
-			printf("%zd %p\n", Objects->Count, Objects->Objects[i]);
+			Il2CppClass* pClass = *(Il2CppClass**)(Objects->Objects[i]);
+			printf("Name->%s NameSpace->%s\n", pClass->ClassName, pClass->NameSpace);
 		}
-		*/
+		
 		// ----------------------------------------------------------------
+		// printf("%p\n", Objects);
+
 
 
 		// Start the Dear ImGui frame

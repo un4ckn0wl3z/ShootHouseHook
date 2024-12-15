@@ -155,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base.h" />
+    <ClInclude Include="class.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="hooks.h" />
     <ClInclude Include="il2cpp_api.h" />

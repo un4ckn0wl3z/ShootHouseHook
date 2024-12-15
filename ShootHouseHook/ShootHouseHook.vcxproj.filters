@@ -95,5 +95,8 @@
     <ClInclude Include="il2cpp_function.h">
       <Filter>Engine</Filter>
     </ClInclude>
+    <ClInclude Include="class.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

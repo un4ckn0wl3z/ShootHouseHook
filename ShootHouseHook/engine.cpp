@@ -45,7 +45,7 @@ namespace Engine
 
 #undef DO_FUNC
 
-	}
+ 	}
 
 	IDXGISwapChain* Engine::GetSwapChain()
 	{
@@ -111,7 +111,6 @@ namespace Engine
 			temp += ");";
 			if (temp == Func)
 			{
-				printf("%p\n", *(void**)pMethod);
 				return *(void**)pMethod;
 			}
 
@@ -121,4 +120,5 @@ namespace Engine
 
 		return NULL;
 	}
+
 }

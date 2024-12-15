@@ -1,6 +1,7 @@
 #pragma once
 
 #include "base.h"
+#include "class.h"
 
 typedef struct Il2CppClass Il2CppClass;
 typedef struct Il2CppType Il2CppType;

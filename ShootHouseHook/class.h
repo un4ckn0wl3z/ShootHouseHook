@@ -56,3 +56,17 @@ public:
 	bool WorldToScreen(Vector3 position, Vector2& Point);
 
 };
+
+
+class Transform
+{
+public:
+	Vector3 GetPosition();
+};
+
+
+class GameObject
+{
+public:
+	Transform* GetTransform();
+};

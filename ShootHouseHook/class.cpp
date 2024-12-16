@@ -1,4 +1,17 @@
 #include "class.h"
+#include "engine.h"
+
+Vector3 Transform::GetPosition()
+{
+	return ::GetPosition(this);
+}
+
+Transform* GameObject::GetTransform()
+{
+	return ::GetTransform(this);
+}
+
+
 
 bool Camera::WorldToScreen(Vector3 position, Vector2& Point)
 {

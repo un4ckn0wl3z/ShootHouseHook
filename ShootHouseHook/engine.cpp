@@ -45,9 +45,6 @@ namespace Engine
 
 #undef DO_FUNC
 
-		Camera* pCamera = GetMainCamera();
-		printf("%p\n", pCamera);
-
  	}
 
 	IDXGISwapChain* Engine::GetSwapChain()

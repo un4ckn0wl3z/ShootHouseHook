@@ -28,6 +28,7 @@ namespace Hooks
 
 		if (!bDx11Init)
 		{
+
 			pSwapChain->GetDevice(__uuidof(ID3D11Device), (void**)&pDevice);
 			pDevice->GetImmediateContext(&pDeviceContext);
 
@@ -56,27 +57,35 @@ namespace Hooks
 		}
 
 
+		// Start the Dear ImGui frame
+		ImGui_ImplDX11_NewFrame();
+		ImGui_ImplWin32_NewFrame();
+		ImGui::NewFrame();
+
+
 		void* Str = PtrToStringAnsi("UnityEngine.GameObject,UnityEngine.CoreModule");
 		void* Type = GetType(Str);
 		Unity_Array* Objects = FindObjectsOfType(Type);
 
 
-		/*
+		Camera* MainCamera = GetMainCamera();
+		
 		for (size_t i = 0; i < Objects->Count; i++)
 		{
-			Il2CppClass* pClass = *(Il2CppClass**)(Objects->Objects[i]);
-			printf("Name->%s NameSpace->%s\n", pClass->ClassName, pClass->NameSpace);
+			GameObject* pGameObject = (GameObject*)(Objects->Objects[i]);
+			Transform* pTransform = pGameObject->GetTransform();
+			Vector3 Pos = pTransform->GetPosition();
+
+			// printf("%f %f %f\n", Pos.x, Pos.y, Pos.z);
+			Vector2 Point;
+			if (MainCamera->WorldToScreen(Pos, Point))
+			{
+				char buf[256];
+				sprintf(buf, "%p", pGameObject);
+				ImGui::GetForegroundDrawList()->AddText({Point.x, Point.y}, ImColor(255,255,0), buf);
+			}
 		}
-		*/
-		// ----------------------------------------------------------------
-		// printf("%p\n", Objects);
-
-
-
-		// Start the Dear ImGui frame
-		ImGui_ImplDX11_NewFrame();
-		ImGui_ImplWin32_NewFrame();
-		ImGui::NewFrame();
+		
 
 
 		// Rendering

@@ -61,13 +61,13 @@ namespace Hooks
 		Unity_Array* Objects = FindObjectsOfType(Type);
 
 
-		
+		/*
 		for (size_t i = 0; i < Objects->Count; i++)
 		{
 			Il2CppClass* pClass = *(Il2CppClass**)(Objects->Objects[i]);
 			printf("Name->%s NameSpace->%s\n", pClass->ClassName, pClass->NameSpace);
 		}
-		
+		*/
 		// ----------------------------------------------------------------
 		// printf("%p\n", Objects);
 
